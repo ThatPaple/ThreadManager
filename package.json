@@ -1,0 +1,17 @@
+{
+  "name": "threadmanager",
+  "version": "0.0.1",
+  "description": "A powerful way to handle threads on Discord.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "LocalStart": "node ."
+  },
+  "author": "thatpaple#9995",
+  "license": "MIT",
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "discord.js": "^13.1.0",
+    "dotenv": "^8.2.0"
+  }
+}
