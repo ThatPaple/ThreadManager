@@ -14,7 +14,7 @@ module.exports = {
 			const bannedWordsList = fs.readFileSync(`${bannedWords}`, 'utf8');
 			const nameSplit = (message.content).split(" ");
 			for (var i = 0; i < nameSplit.length; i++) {
-				if (bannedWordsList.includes(nameSplit[i])) {
+				if ((bannedWordsList.toLowerCase()).includes(nameSplit[i].toLowerCase())) {
 					message.delete();
 				}
 			}
