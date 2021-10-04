@@ -10,6 +10,7 @@ module.exports = {
 	args: false,
 	usage: '[command name]',
 	execute: async (message, args, client) => {
+		message.delete();
 		const { commands } = message.client;
 
 		if (!args.length) {
@@ -49,7 +50,13 @@ module.exports = {
 				'Aliases',
 				`\`${command.aliases.join(' | ')}\``,
 				true,
-			);
+			)
+			if (command.args) {
+				cmdHelpEmbed.addField(
+					'Arguments',
+					`\`${command.argList.join(' | ')}\``,
+					true,
+				)};	
 		}
 
 		return message.channel.send({ embeds: [cmdHelpEmbed] });

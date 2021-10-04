@@ -8,9 +8,11 @@ module.exports = {
 	description: 'This command allows you to configure your thread name filter.',
 	aliases: ['fil'],
 	guildOnly: false,
-	args: false,
+	args: true,
+	argList : ['add', 'remove', 'list'],
 	usage: '',
 	execute: (message, args, client) => {
+		message.delete();
 		switch (args[0]) {
 			case 'add':
 				if (args[1] == null) {
@@ -23,12 +25,15 @@ module.exports = {
 					fs.appendFileSync(`${bannedWords}`, `${args.slice(1).join(" ")}\n`);
 					const addSEmbed = new Discord.MessageEmbed()
 						.setTitle('**SUCCESS!**')
-						.setDescription(`Added ${args.slice(1).join(" ")} to the banned thread names.`)
+						.setDescription(`Added ||${args.slice(1).join(" ")}|| to the banned thread names.`) // Censored due to possible triggers
 						.setColor(colors.default);
 					return message.channel.send({ embeds: [addSEmbed] });
 				}
 				break;
 			case 'remove':
+
+				// System throws nulls within "has been deleted".
+
 				if (args[1] == null) {
 					const remFEmbed = new Discord.MessageEmbed()
 						.setTitle('**ARGUMENTS MISSING**')
@@ -42,9 +47,13 @@ module.exports = {
 					console.log("arr " + arr.length)
 					console.log(args[1])
 					if (arr.length == 1 || args[1] >= arr.length - 1) {
+
+						// This trigger fails sommetimes, the if statement needs diff. conditions.
+						
 						const remFEFmbed = new Discord.MessageEmbed()
 							.setTitle('**ERROR!**')
-							.setDescription(`Array is empty or position does not exist!\nRun \`\`tm.filter list\`\` to get a list of positions`)
+							.setDescription(`Array is empty or position does not exist!\nRun \`\`tm.filter list\`\` to get a list of positions`) 
+
 							.setColor(colors.error);
 						return message.channel.send({ embeds: [remFEFmbed] });
 					} else {
@@ -60,7 +69,7 @@ module.exports = {
 
 						const remSEmbed = new Discord.MessageEmbed()
 							.setTitle('**SUCCESS!**')
-							.setDescription(`Removed ${deletedWord} from the banned thread names.`)
+							.setDescription(`Removed ||${deletedWord}|| from the banned thread names.`) //Censored due to possible triggers
 							.setColor(colors.default);
 						return message.channel.send({ embeds: [remSEmbed] });
 					}
@@ -84,7 +93,7 @@ module.exports = {
 			default:
 				const defaultEmbed = new Discord.MessageEmbed()
 					.setTitle('**ARGUMENTS MISSING**')
-					.setDescription(`Required Arguments : add\nremove\nlist`)
+					.setDescription(`Required Arguments :\nadd\nremove\nlist`)
 					.setColor(colors.error);
 				return message.channel.send({ embeds: [defaultEmbed] });
 		}

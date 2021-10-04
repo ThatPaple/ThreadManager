@@ -10,6 +10,7 @@ module.exports = {
 		Extension to threadCreate.js
 		There was no way to deal with this in that file, I don't know.. I might not know what I'm doing.
 		*/
+
 		if (message.type === "THREAD_CREATED") {
 			const bannedWordsList = fs.readFileSync(`${bannedWords}`, 'utf8');
 			const nameSplit = (message.content).split(" ");
@@ -19,6 +20,8 @@ module.exports = {
 				}
 			}
 		}
+
+		//Implement modlogs
 
 		if (!message.content.startsWith(prefix) || message.author.bot) return;
 		const args = message.content.slice(prefix.length).split(/ +/);
