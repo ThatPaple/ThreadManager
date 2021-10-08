@@ -1,3 +1,5 @@
+# This project is work in progress, the readme file will be updated once the threading feature is completed.
+
 <h3 align="center">ThreadManager</h3>
   <p align="center">
     Discord Thread Moderation Bot.
@@ -31,14 +33,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Discord threads are a relatively new feature, with that said, it might be clear that there are not many bots to handle moderation when it comes to thread names and interaction. ThreadManager aims to simplify that process for server members and server moderators.
 
-Here's the *why* you should at least check out the project:
-* ThreadManager moderates thread names and content!
-* You have full control over what the bot can and cannot block. Most features are built with control in mind. I understand that everyone has different moderating styles, ThreadManager got you covered!
-* [threeeaaaad it!](https://www.youtube.com/watch?v=g8IjA9Zeong)
-
-Of course, the templates that I provide may not be the best of both worlds, yet, if you do create a better one or expand on the one I have provided, please check out the <a href="#contributing">contributing</a> section of this readme.
 
 <!-- GETTING STARTED -->
 ## Getting Started
