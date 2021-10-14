@@ -1,4 +1,4 @@
-# This project is work in progress, the readme file will be updated once the threading feature is completed.
+## This project has been discontinued. I have started working on a different bot with the same functionality. Stay tuned.
 
 <h3 align="center">ThreadManager</h3>
   <p align="center">
